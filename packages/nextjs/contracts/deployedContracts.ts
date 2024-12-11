@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf",
       abi: [
         {
           inputs: [
@@ -26,30 +26,91 @@ const deployedContracts = {
             {
               indexed: true,
               internalType: "address",
-              name: "greetingSetter",
+              name: "student",
               type: "address",
             },
             {
               indexed: false,
               internalType: "string",
-              name: "newGreeting",
+              name: "data",
               type: "string",
             },
             {
               indexed: false,
-              internalType: "bool",
-              name: "premium",
-              type: "bool",
+              internalType: "string",
+              name: "grade",
+              type: "string",
+            },
+          ],
+          name: "CertificateIssued",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "certificateData",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "certificateGrades",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "studentAddress",
+              type: "address",
+            },
+          ],
+          name: "getCertificate",
+          outputs: [
+            {
+              internalType: "string",
+              name: "data",
+              type: "string",
             },
             {
-              indexed: false,
+              internalType: "string",
+              name: "grade",
+              type: "string",
+            },
+            {
               internalType: "uint256",
-              name: "value",
+              name: "count",
               type: "uint256",
             },
           ],
-          name: "GreetingChange",
-          type: "event",
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -78,29 +139,26 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [],
-          name: "premium",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [
             {
+              internalType: "address",
+              name: "studentAddress",
+              type: "address",
+            },
+            {
               internalType: "string",
-              name: "_newGreeting",
+              name: "data",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "grade",
               type: "string",
             },
           ],
           name: "setGreeting",
           outputs: [],
-          stateMutability: "payable",
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -124,7 +182,7 @@ const deployedContracts = {
               type: "address",
             },
           ],
-          name: "userGreetingCounter",
+          name: "userCertificateCount",
           outputs: [
             {
               internalType: "uint256",
@@ -134,17 +192,6 @@ const deployedContracts = {
           ],
           stateMutability: "view",
           type: "function",
-        },
-        {
-          inputs: [],
-          name: "withdraw",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          stateMutability: "payable",
-          type: "receive",
         },
       ],
       inheritedFunctions: {},

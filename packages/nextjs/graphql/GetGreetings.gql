@@ -1,13 +1,9 @@
-query GetGreetings {
-  greetings(first: 25, orderBy: createdAt, orderDirection: desc) {
+query GetCertificates {
+  certificateIssueds(first: 25, orderBy: blockTimestamp, orderDirection: desc) {
     id
-    greeting
-    premium
-    value
-    createdAt
-    sender {
-      address
-      greetingCount
-    }
+    student
+    data
+    grade
+    blockTimestamp
   }
 }
